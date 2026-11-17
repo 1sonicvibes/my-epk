@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sean Jones — EPK · Live Hardware &amp; DJ Sets</title>
+<meta name="description" content="Sean Jones — Barcelona-based artist and producer. Groove & Melodic · Rave & Breaks · Urban & Latin. Live Hardware & DJ Sets.">
+<link rel="preload" as="image" href="./assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p-bg: oklch(0.15 0.012 60);
+  --p-bg-2: oklch(0.20 0.016 60);
+  --p-amber: oklch(0.78 0.16 75);
+  --p-red: oklch(0.66 0.22 35);
+  --p-teal: oklch(0.78 0.13 175);
+  --p-text: oklch(0.93 0.01 85);
+  --p-text-2: oklch(0.72 0.015 80);
+  --bg: var(--p-bg); --surface: var(--p-bg-2);
+  --text: var(--p-text); --text-2: var(--p-text-2);
+  --c-groove: var(--p-teal); --c-rave: var(--p-red); --c-urban: var(--p-amber);
+  --radius: 12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;font-size:16px;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;min-height:100dvh}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--c-urban);outline-offset:3px;border-radius:4px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+button{cursor:pointer;font:inherit}
+
+/* trilingual toggle */
+.lang{position:fixed;top:14px;right:14px;z-index:20;display:flex;border:1px solid oklch(1 0 0 / 30%);border-radius:999px;overflow:hidden;background:oklch(0.15 0.012 60 / 85%);backdrop-filter:blur(8px)}
+.lang button{
+  padding:10px 16px;min-height:44px;border:0;background:transparent;color:var(--text-2);
+  font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;
+  transition:background .2s ease-out,color .2s ease-out;
+}
+.lang button:hover{color:var(--text)}
+.lang button[aria-pressed="true"]{background:var(--c-urban);color:oklch(0.2 0.03 60);font-weight:600}
+
+/* hero — attached live crowd photo with dark gradient overlay */
+.hero{
+  position:relative;min-height:92dvh;display:flex;align-items:flex-end;
+  padding:120px 0 72px;border-bottom:1px solid oklch(1 0 0 / 8%);
+  background:
+    linear-gradient(to top, var(--bg) 4%, oklch(0.13 0.012 60 / 82%) 38%, oklch(0.13 0.012 60 / 48%) 70%, oklch(0.13 0.012 60 / 55%)),
+    url("./assets/hero.jpg") center 32% / cover no-repeat,
+    var(--bg);
+}
+.hero-tag{position:absolute;top:14px;left:14px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--text-2)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-urban);margin-bottom:20px}
+h1{font-family:"Unbounded",sans-serif;font-weight:900;font-size:clamp(3rem,11vw,6.5rem);line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
+.sub{margin-top:20px;font-family:"Unbounded",sans-serif;font-weight:500;font-size:clamp(1rem,3vw,1.35rem);color:var(--c-urban)}
+.bio{margin-top:20px;max-width:56ch;color:var(--text);font-size:1.02rem;text-shadow:0 1px 8px oklch(0.1 0.01 60 / 60%)}
+
+/* cluster sections */
+section{padding:72px 0;border-bottom:1px solid oklch(1 0 0 / 8%)}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{font-family:"Unbounded",sans-serif;font-weight:700;font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase}
+h2 .sw{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:12px}
+.sw-groove{background:var(--c-groove)}.sw-rave{background:var(--c-rave)}.sw-urban{background:var(--c-urban)}
+.genres{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.pitch{max-width:62ch;color:var(--text-2);margin:14px 0 26px;font-size:1.05rem}
+.links{display:grid;gap:12px}
+.btn{
+  display:flex;align-items:center;gap:14px;min-height:56px;
+  padding:16px 20px;border:1px solid oklch(1 0 0 / 14%);border-radius:var(--radius);
+  background:var(--surface);text-decoration:none;
+  transition:transform .2s ease-out,border-color .2s ease-out,background .2s ease-out;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--btn-accent,var(--c-urban));background:oklch(0.23 0.02 60)}
+.btn:active{transform:translateY(0)}
+.btn .t{flex:1 1 auto;min-width:0}
+.btn .t b{display:block;font-weight:600;font-size:1rem}
+.btn .t span{display:block;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.06em;color:var(--text-2);margin-top:2px}
+.btn .arr{font-family:"JetBrains Mono",monospace;color:var(--btn-accent,var(--c-urban));font-size:18px;flex:0 0 auto}
+.btn .thumb{width:56px;height:56px;flex:0 0 auto;border-radius:8px;object-fit:cover;display:block}
+.btn-groove{--btn-accent:var(--c-groove)}.btn-rave{--btn-accent:var(--c-rave)}.btn-urban{--btn-accent:var(--c-urban)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{padding:7px 14px;border-radius:999px;border:1px solid oklch(1 0 0 / 16%);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-2)}
+
+/* tech rider */
+.rider{display:grid;gap:12px}
+.rider .card{padding:20px;border:1px solid oklch(1 0 0 / 14%);border-radius:var(--radius);background:var(--surface)}
+.rider .card b{display:block;font-family:"Unbounded",sans-serif;font-weight:700;font-size:.95rem;text-transform:uppercase;margin-bottom:8px}
+.rider .card p{color:var(--text-2);font-size:.98rem}
+@media(min-width:640px){.rider{grid-template-columns:1fr 1fr}}
+
+/* booking footer */
+footer{padding:80px 0 96px;text-align:center}
+.book{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:64px;padding:20px 36px;border-radius:999px;
+  background:var(--c-urban);color:oklch(0.2 0.03 60);
+  font-family:"Unbounded",sans-serif;font-weight:700;font-size:clamp(.95rem,3.2vw,1.25rem);
+  text-decoration:none;transition:transform .2s ease-out,filter .2s ease-out;
+}
+.book:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.book:active{transform:translateY(0)}
+footer p{margin-top:22px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--text-2)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:480px){section{padding:52px 0}.hero{padding:96px 0 56px;min-height:82dvh}}
+</style>
+</head>
+<body>
+
+<div class="lang" role="group" aria-label="Language / Idioma / Idioma">
+  <button type="button" data-lang="en" aria-pressed="true">EN</button>
+  <button type="button" data-lang="es" aria-pressed="false">ES</button>
+  <button type="button" data-lang="ca" aria-pressed="false">CA</button>
+</div>
+
+<header class="hero" id="top">
+  <span class="hero-tag">EPK — 2026</span>
+  <div class="wrap">
+    <p class="kicker" data-en="Electronic Press Kit" data-es="Press Kit Electrónico" data-ca="Press Kit Electrònic">Electronic Press Kit</p>
+    <h1>Sean Jones</h1>
+    <p class="sub" data-en="Live Hardware &amp; DJ Sets | Barcelona" data-es="Directos con Hardware y Sesiones de DJ | Barcelona" data-ca="Directes amb Maquinari i Sessions de DJ | Barcelona">Live Hardware &amp; DJ Sets | Barcelona</p>
+    <p class="bio"
+      data-en="Barcelona-based artist and producer blending the organic textures of Groove &amp; Melodic with the heavy pressure of Rave &amp; Breaks and the rhythm of Urban &amp; Latin. Mentored in live hardware by UK techno maestro Saytek Live. Whether performing a hybrid live set or a high-energy DJ set, I deliver specifically tailored sets for the time of night and the energy of the room."
+      data-es="Artista y productor afincado en Barcelona que fusiona las texturas orgánicas del Groove &amp; Melodic con la presión del Rave &amp; Breaks y el ritmo del Urban &amp; Latin. Mentorizado en directo con hardware por el maestro del techno británico Saytek Live. Ya sea un directo híbrido o una sesión de DJ de alta energía, ofrezco sets adaptados al momento de la noche y a la energía de la sala."
+      data-ca="Artista i productor establert a Barcelona que fusiona les textures orgàniques del Groove &amp; Melodic amb la pressió del Rave &amp; Breaks i el ritme de l'Urban &amp; Latin. Mentoritzat en directe amb maquinari pel mestre del techno britànic Saytek Live. Tant si és un directe híbrid com una sessió de DJ d'alta energia, ofereixo sets adaptats al moment de la nit i a l'energia de la sala.">Barcelona-based artist and producer blending the organic textures of Groove &amp; Melodic with the heavy pressure of Rave &amp; Breaks and the rhythm of Urban &amp; Latin. Mentored in live hardware by UK techno maestro Saytek Live. Whether performing a hybrid live set or a high-energy DJ set, I deliver specifically tailored sets for the time of night and the energy of the room.</p>
+  </div>
+</header>
+
+<main>
+
+<!-- CLUSTER 1 -->
+<section class="wrap" id="groove">
+  <div class="sec-head">
+    <h2><span class="sw sw-groove"></span>Groove &amp; Melodic</h2>
+    <span class="genres" data-en="Organic House · Melodic Techno · Deep Tech" data-es="Organic House · Techno Melódico · Deep Tech" data-ca="Organic House · Techno Melòdic · Deep Tech">Organic House · Melodic Techno · Deep Tech</span>
+  </div>
+  <p class="pitch"
+    data-en="The sunset, warm-up, and sunrise sound. Warm, rolling, and hypnotic."
+    data-es="El sonido del atardecer, el calentamiento y el amanecer. Cálido, rodante e hipnótico."
+    data-ca="El so de la posta de sol, l'escalfament i la sortida de sol. Càlid, rodant i hipnòtic.">The sunset, warm-up, and sunrise sound. Warm, rolling, and hypnotic.</p>
+  <div class="chips">
+    <span class="chip" data-en="DJ Sets" data-es="Sesiones de DJ" data-ca="Sessions de DJ">DJ Sets</span>
+    <span class="chip" data-en="Live Hardware" data-es="Directo con Hardware" data-ca="Directe amb Maquinari">Live Hardware</span>
+  </div>
+  <div class="links">
+    <a class="btn btn-groove" href="https://www.instagram.com/reel/DdZEx2mIvUX/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-groove.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Organic House Reel" data-es="Ver Reel de Organic House" data-ca="Veure Reel de Organic House">Watch Organic House Reel</b><span>Instagram</span></span><span class="arr">↗</span>
+    </a>
+    <a class="btn btn-groove" href="https://www.instagram.com/reel/DQ7M-KrCHyS/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-techno.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Live Techno" data-es="Ver Techno en Directo" data-ca="Veure Techno en Directe">Watch Live Techno</b><span>Instagram</span></span><span class="arr">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- CLUSTER 2 -->
+<section class="wrap" id="rave">
+  <div class="sec-head">
+    <h2><span class="sw sw-rave"></span>Rave &amp; Breaks</h2>
+    <span class="genres">DnB · Jungle · Electrohouse · Hard Techno</span>
+  </div>
+  <p class="pitch"
+    data-en="Peak-time pressure. Breaks, heavy basslines, and live hardware energy for the main room."
+    data-es="Presión de hora punta. Breaks, bajos contundentes y energía de hardware en directo para la sala principal."
+    data-ca="Pressió d'hora punta. Breaks, baixos contundents i energia de maquinari en directe per a la sala principal.">Peak-time pressure. Breaks, heavy basslines, and live hardware energy for the main room.</p>
+  <div class="chips">
+    <span class="chip" data-en="DJ Sets" data-es="Sesiones de DJ" data-ca="Sessions de DJ">DJ Sets</span>
+    <span class="chip" data-en="Live Hardware" data-es="Directo con Hardware" data-ca="Directe amb Maquinari">Live Hardware</span>
+  </div>
+  <div class="links">
+    <a class="btn btn-rave" href="https://vt.tiktok.com/ZSpGXyCgM/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-rave.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch DnB Reel" data-es="Ver Reel de DnB" data-ca="Veure Reel de DnB">Watch DnB Reel</b><span>TikTok</span></span><span class="arr">↗</span>
+    </a>
+    <a class="btn btn-rave" href="https://vt.tiktok.com/ZSpG48bT1/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-rave.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Electro Reel" data-es="Ver Reel de Electro" data-ca="Veure Reel d'Electro">Watch Electro Reel</b><span>TikTok</span></span><span class="arr">↗</span>
+    </a>
+    <a class="btn btn-rave" href="https://www.instagram.com/reel/DeUUDhyoVQs/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-rave.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Live Uptempo" data-es="Ver Uptempo en Directo" data-ca="Veure Uptempo en Directe">Watch Live Uptempo</b><span>Instagram</span></span><span class="arr">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- CLUSTER 3 -->
+<section class="wrap" id="urban">
+  <div class="sec-head">
+    <h2><span class="sw sw-urban"></span>Urban &amp; Latin</h2>
+    <span class="genres">Trap · Hip-Hop · Latin Club · Garage</span>
+  </div>
+  <p class="pitch"
+    data-en="High-energy, vocal-driven party starters for peak-time club slots."
+    data-es="Temas de alta energía, liderados por vocales, para encender la pista en hora punta."
+    data-ca="Temes d'alta energia, liderats per veus, per encendre la pista en hora punta.">High-energy, vocal-driven party starters for peak-time club slots.</p>
+  <div class="chips">
+    <span class="chip" data-en="DJ Sets" data-es="Sesiones de DJ" data-ca="Sessions de DJ">DJ Sets</span>
+    <span class="chip" data-en="Live Hardware" data-es="Directo con Hardware" data-ca="Directe amb Maquinari">Live Hardware</span>
+  </div>
+  <div class="links">
+    <a class="btn btn-urban" href="https://vm.tiktok.com/ZN8aRS133/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-urban.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Trap Remix" data-es="Ver Remix de Trap" data-ca="Veure Remix de Trap">Watch Trap Remix</b><span>TikTok</span></span><span class="arr">↗</span>
+    </a>
+    <a class="btn btn-urban" href="https://vm.tiktok.com/ZN8aRU8uG/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-urban.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Latin Reel" data-es="Ver Reel de Latin" data-ca="Veure Reel de Latin">Watch Latin Reel</b><span>TikTok</span></span><span class="arr">↗</span>
+    </a>
+    <a class="btn btn-urban" href="https://vt.tiktok.com/ZSpG4xm3c/" target="_blank" rel="noopener">
+      <img class="thumb" src="./assets/thumb-urban.jpg" alt="" loading="lazy">
+      <span class="t"><b data-en="Watch Traphouse" data-es="Ver Traphouse" data-ca="Veure Traphouse">Watch Traphouse</b><span>TikTok</span></span><span class="arr">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- TECH RIDER -->
+<section class="wrap" id="rider">
+  <div class="sec-head">
+    <h2 data-en="Format &amp; Tech Rider" data-es="Formato y Rider Técnico" data-ca="Format i Rider Tècnic">Format &amp; Tech Rider</h2>
+  </div>
+  <div class="rider">
+    <div class="card">
+      <b data-en="Live Hardware" data-es="Directo con Hardware" data-ca="Directe amb Maquinari">Live Hardware</b>
+      <p data-en="Brings own gear; requires 2 free mixer channels and 1 power socket."
+         data-es="Trae su propio equipo; requiere 2 canales libres en el mezclador y 1 toma de corriente."
+         data-ca="Porta el seu propi equip; requereix 2 canals lliures a la taula de mescles i 1 endoll.">Brings own gear; requires 2 free mixer channels and 1 power socket.</p>
+    </div>
+    <div class="card">
+      <b data-en="DJ Sets" data-es="Sesiones de DJ" data-ca="Sessions de DJ">DJ Sets</b>
+      <p data-en="Standard CDJs or controller setup."
+         data-es="Configuración estándar de CDJs o controlador."
+         data-ca="Configuració estàndard de CDJs o controlador.">Standard CDJs or controller setup.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap" id="book">
+  <a class="book" href="mailto:1sonicvibes@gmail.com" data-en="📥 BOOK NOW: 1sonicvibes@gmail.com" data-es="📥 RESERVA AHORA: 1sonicvibes@gmail.com" data-ca="📥 RESERVA ARA: 1sonicvibes@gmail.com">📥 BOOK NOW: 1sonicvibes@gmail.com</a>
+  <p data-en="WhatsApp +34 611 081 323 (messages only)" data-es="WhatsApp +34 611 081 323 (solo mensajes)" data-ca="WhatsApp +34 611 081 323 (només missatges)">WhatsApp +34 611 081 323 (messages only)</p>
+  <p style="margin-top:26px">© 2026 Sean Jones</p>
+</footer>
+
+<script>
+const root = document.documentElement;
+const buttons = document.querySelectorAll('.lang button');
+const translatables = document.querySelectorAll('[data-en]');
+const titles = {
+  en: 'Sean Jones — EPK · Live Hardware & DJ Sets',
+  es: 'Sean Jones — EPK · Directos con Hardware y Sesiones de DJ',
+  ca: 'Sean Jones — EPK · Directes amb Maquinari i Sessions de DJ'
+};
+
+function setLang(lang){
+  translatables.forEach(el => { el.innerHTML = el.dataset[lang]; });
+  root.lang = lang;
+  buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  document.title = titles[lang];
+  try { localStorage.setItem('sj-lang', lang); } catch(e){}
+}
+
+buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+let saved = null;
+try { saved = localStorage.getItem('sj-lang'); } catch(e){}
+if (saved && saved !== 'en' && titles[saved]) setLang(saved);
+</script>
+</body>
+</html>
